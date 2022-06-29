@@ -32,11 +32,11 @@ function App() {
   }, [query, units]);
 
   const formatBackground = () => {
-    if (!weather) return "from-cyan-700 to-blue-700";
+    if (!weather) return "from-cyan-200 to-blue-400";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
+    if (weather.temp <= threshold) return "from-cyan-700 to-blue-400";
 
-    return "from-yellow-700 to-orange-700";
+    return "from-yellow-500 to-orange-400";
   };
 
   return (
@@ -49,7 +49,7 @@ function App() {
       {weather && (
         <div>
           <TimeAndLocation weather={weather} />
-          <TemperatureAndDetails weather={weather} />
+          <TemperatureAndDetails weather={weather} units={units}/>
 
           <Forecast title="hourly forecast" items={weather.hourly} />
           <Forecast title="daily forecast" items={weather.daily} />
